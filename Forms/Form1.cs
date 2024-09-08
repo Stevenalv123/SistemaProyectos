@@ -50,7 +50,7 @@ namespace SistemaProyectos
                     tblCuerpo.Visible = true;
                     lblID.Visible = true;
                     txtID.Visible = true;
-                    txtNombre.Focus();
+                    txtNombreEmpleado.Focus();
                     tblDepart.Visible=false;
                     break;
                 case 1:
@@ -135,6 +135,32 @@ namespace SistemaProyectos
             {
                 errorProvider.SetError(txtDNI, "");
             }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarControles();   
+        }
+
+        private void LimpiarControles()
+        {
+            txtNombreEmpleado.Clear();
+            txtDNI.Clear();
+            txtSalario.Clear();
+            txtCorreo.Clear();
+            cmbCargo.Items.Clear();
+            cmbDepartamento.Items.Clear();
+            txtResidencia.Clear();
+            txtnumeroTelefono.Clear();
+            txtEdad.Clear();
+            txtNombreDepartamento.Clear();
+            txtJefeDepartamento.Clear();
+            cmbNumeroEmpleados.Items.Clear();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            LimpiarControles();
         }
     }
 }

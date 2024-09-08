@@ -79,7 +79,7 @@
             this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtNombreEmpleado = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tabDepartamentos = new System.Windows.Forms.TabPage();
             this.errFormato = new System.Windows.Forms.ErrorProvider(this.components);
@@ -95,11 +95,11 @@
             this.panel28 = new System.Windows.Forms.Panel();
             this.panel29 = new System.Windows.Forms.Panel();
             this.panel31 = new System.Windows.Forms.Panel();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cmbNumeroEmpleados = new System.Windows.Forms.ComboBox();
             this.label18 = new System.Windows.Forms.Label();
             this.panel32 = new System.Windows.Forms.Panel();
             this.label19 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtJefeDepartamento = new System.Windows.Forms.TextBox();
             this.panel33 = new System.Windows.Forms.Panel();
             this.panel34 = new System.Windows.Forms.Panel();
             this.panel36 = new System.Windows.Forms.Panel();
@@ -310,6 +310,7 @@
             this.btnLimpiar.TabIndex = 91;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // panel17
             // 
@@ -721,7 +722,7 @@
             // panel8
             // 
             this.panel8.Controls.Add(this.label1);
-            this.panel8.Controls.Add(this.txtNombre);
+            this.panel8.Controls.Add(this.txtNombreEmpleado);
             this.panel8.Controls.Add(this.panel2);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(3, 3);
@@ -739,16 +740,16 @@
             this.label1.TabIndex = 63;
             this.label1.Text = "Nombre Completo";
             // 
-            // txtNombre
+            // txtNombreEmpleado
             // 
-            this.txtNombre.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtNombre.BackColor = System.Drawing.Color.PapayaWhip;
-            this.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNombre.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(13, 58);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(269, 19);
-            this.txtNombre.TabIndex = 64;
+            this.txtNombreEmpleado.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtNombreEmpleado.BackColor = System.Drawing.Color.PapayaWhip;
+            this.txtNombreEmpleado.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNombreEmpleado.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombreEmpleado.Location = new System.Drawing.Point(13, 58);
+            this.txtNombreEmpleado.Name = "txtNombreEmpleado";
+            this.txtNombreEmpleado.Size = new System.Drawing.Size(269, 19);
+            this.txtNombreEmpleado.TabIndex = 64;
             // 
             // panel2
             // 
@@ -853,6 +854,7 @@
             this.button2.TabIndex = 91;
             this.button2.Text = "Limpiar";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // panel22
             // 
@@ -898,7 +900,7 @@
             // 
             // panel31
             // 
-            this.panel31.Controls.Add(this.comboBox2);
+            this.panel31.Controls.Add(this.cmbNumeroEmpleados);
             this.panel31.Controls.Add(this.label18);
             this.panel31.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel31.Location = new System.Drawing.Point(3, 113);
@@ -906,12 +908,12 @@
             this.panel31.Size = new System.Drawing.Size(294, 95);
             this.panel31.TabIndex = 4;
             // 
-            // comboBox2
+            // cmbNumeroEmpleados
             // 
-            this.comboBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.cmbNumeroEmpleados.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbNumeroEmpleados.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cmbNumeroEmpleados.FormattingEnabled = true;
+            this.cmbNumeroEmpleados.Items.AddRange(new object[] {
             "1",
             "2",
             "3",
@@ -927,10 +929,10 @@
             "13",
             "14",
             "15"});
-            this.comboBox2.Location = new System.Drawing.Point(13, 44);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(233, 28);
-            this.comboBox2.TabIndex = 74;
+            this.cmbNumeroEmpleados.Location = new System.Drawing.Point(13, 44);
+            this.cmbNumeroEmpleados.Name = "cmbNumeroEmpleados";
+            this.cmbNumeroEmpleados.Size = new System.Drawing.Size(233, 28);
+            this.cmbNumeroEmpleados.TabIndex = 74;
             // 
             // label18
             // 
@@ -945,7 +947,7 @@
             // panel32
             // 
             this.panel32.Controls.Add(this.label19);
-            this.panel32.Controls.Add(this.textBox5);
+            this.panel32.Controls.Add(this.txtJefeDepartamento);
             this.panel32.Controls.Add(this.panel33);
             this.panel32.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel32.Location = new System.Drawing.Point(903, 3);
@@ -963,16 +965,16 @@
             this.label19.TabIndex = 71;
             this.label19.Text = "Jefe del departamento";
             // 
-            // textBox5
+            // txtJefeDepartamento
             // 
-            this.textBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox5.BackColor = System.Drawing.Color.PapayaWhip;
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(14, 58);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(269, 19);
-            this.textBox5.TabIndex = 72;
+            this.txtJefeDepartamento.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtJefeDepartamento.BackColor = System.Drawing.Color.PapayaWhip;
+            this.txtJefeDepartamento.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtJefeDepartamento.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtJefeDepartamento.Location = new System.Drawing.Point(14, 58);
+            this.txtJefeDepartamento.Name = "txtJefeDepartamento";
+            this.txtJefeDepartamento.Size = new System.Drawing.Size(269, 19);
+            this.txtJefeDepartamento.TabIndex = 72;
             // 
             // panel33
             // 
@@ -1144,7 +1146,7 @@
         private System.Windows.Forms.TextBox txtEdad;
         private System.Windows.Forms.DateTimePicker dtpFechaNacimiento;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.TextBox txtNombreEmpleado;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -1174,11 +1176,11 @@
         private System.Windows.Forms.Panel panel28;
         private System.Windows.Forms.Panel panel29;
         private System.Windows.Forms.Panel panel31;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cmbNumeroEmpleados;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Panel panel32;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtJefeDepartamento;
         private System.Windows.Forms.Panel panel33;
         private System.Windows.Forms.Panel panel34;
         private System.Windows.Forms.Panel panel36;

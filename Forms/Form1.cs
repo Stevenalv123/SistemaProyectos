@@ -17,26 +17,50 @@ namespace SistemaProyectos
         {
             InitializeComponent();
         }
-
+        int selectedIndex;
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lblPestaña.Text == "Empleados")
+            selectedIndex = tbDepartamentos.SelectedIndex;
+            switch (selectedIndex)
             {
-                lblPestaña.Text = "Departamentos";
-            }
-            else
-            {
-                lblPestaña.Text = "Empleados";
+                case 0:
+                    lblID.Visible = false;
+                    txtID.Visible = false;
+                    lblPestaña.Text = "Empleados";
+                    lblID.Text= "ID del Empleado:"; lblID.Font = new Font(btnNuevoEmpleado.Font.FontFamily, 16, FontStyle.Bold);
+                    btnNuevoEmpleado.Text = "Nuevo Empleado"; btnNuevoEmpleado.Font = new Font(btnNuevoEmpleado.Font.FontFamily, 16,FontStyle.Bold);
+                    break; 
+                case 1:
+                    lblID.Visible = false;
+                    txtID.Visible = false;
+                    lblPestaña.Text = "Departamentos";
+                    lblID.Text = "ID del Departamento:"; lblID.Font = new Font(btnNuevoEmpleado.Font.FontFamily, 13, FontStyle.Bold);
+                    tblDepart.Visible = false;
+                    btnNuevoEmpleado.Text = "Nuevo Departamento"; btnNuevoEmpleado.Font = new Font(btnNuevoEmpleado.Font.FontFamily, 12,FontStyle.Bold);
+                    break;
             }
 
         }
 
         private void btnNuevoEmpleado_Click(object sender, EventArgs e)
         {
-            tblCuerpo.Visible = true;
-            lblIDempleado.Visible = true;
-            txtIDempleado.Visible=true;
-            txtNombre.Focus();
+            switch (selectedIndex)
+            {
+                case 0:
+                    tblCuerpo.Visible = true;
+                    lblID.Visible = true;
+                    txtID.Visible = true;
+                    txtNombre.Focus();
+                    tblDepart.Visible=false;
+                    break;
+                case 1:
+                    tblDepart.Visible = true;
+                    lblID.Visible = true;
+                    txtID.Visible=true;
+                    txtNombreDepartamento.Focus();
+                    tblCuerpo.Visible=false;
+                    break;
+            }
         }
 
         private void dtpFechaNacimiento_ValueChanged(object sender, EventArgs e)
@@ -83,6 +107,8 @@ namespace SistemaProyectos
         private void Form1_Load(object sender, EventArgs e)
         {
             tblCuerpo.Visible= false;
+            tblDepart.Visible= false;
+            
         }
 
         private void ValidarSalario()

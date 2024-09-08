@@ -31,13 +31,13 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pnHeader = new System.Windows.Forms.Panel();
-            this.txtIDempleado = new System.Windows.Forms.TextBox();
-            this.lblIDempleado = new System.Windows.Forms.Label();
+            this.txtID = new System.Windows.Forms.TextBox();
+            this.lblID = new System.Windows.Forms.Label();
             this.btnNuevoEmpleado = new System.Windows.Forms.Button();
             this.lblPestaña = new System.Windows.Forms.Label();
             this.tbDepartamentos = new System.Windows.Forms.TabControl();
             this.tabEmpleados = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dtgDepartamentos = new System.Windows.Forms.DataGridView();
             this.tblCuerpo = new System.Windows.Forms.TableLayoutPanel();
             this.panel19 = new System.Windows.Forms.Panel();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -84,10 +84,34 @@
             this.tabDepartamentos = new System.Windows.Forms.TabPage();
             this.errFormato = new System.Windows.Forms.ErrorProvider(this.components);
             this.errFormatoDNI = new System.Windows.Forms.ErrorProvider(this.components);
+            this.tblDepart = new System.Windows.Forms.TableLayoutPanel();
+            this.panel20 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.panel22 = new System.Windows.Forms.Panel();
+            this.panel24 = new System.Windows.Forms.Panel();
+            this.panel26 = new System.Windows.Forms.Panel();
+            this.panel28 = new System.Windows.Forms.Panel();
+            this.panel29 = new System.Windows.Forms.Panel();
+            this.panel31 = new System.Windows.Forms.Panel();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.panel32 = new System.Windows.Forms.Panel();
+            this.label19 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.panel33 = new System.Windows.Forms.Panel();
+            this.panel34 = new System.Windows.Forms.Panel();
+            this.panel36 = new System.Windows.Forms.Panel();
+            this.panel37 = new System.Windows.Forms.Panel();
+            this.label22 = new System.Windows.Forms.Label();
+            this.txtNombreDepartamento = new System.Windows.Forms.TextBox();
+            this.panel38 = new System.Windows.Forms.Panel();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.pnHeader.SuspendLayout();
             this.tbDepartamentos.SuspendLayout();
             this.tabEmpleados.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgDepartamentos)).BeginInit();
             this.tblCuerpo.SuspendLayout();
             this.panel19.SuspendLayout();
             this.panel18.SuspendLayout();
@@ -101,14 +125,22 @@
             this.panel10.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
+            this.tabDepartamentos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errFormato)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errFormatoDNI)).BeginInit();
+            this.tblDepart.SuspendLayout();
+            this.panel26.SuspendLayout();
+            this.panel28.SuspendLayout();
+            this.panel31.SuspendLayout();
+            this.panel32.SuspendLayout();
+            this.panel37.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // pnHeader
             // 
-            this.pnHeader.Controls.Add(this.txtIDempleado);
-            this.pnHeader.Controls.Add(this.lblIDempleado);
+            this.pnHeader.Controls.Add(this.txtID);
+            this.pnHeader.Controls.Add(this.lblID);
             this.pnHeader.Controls.Add(this.btnNuevoEmpleado);
             this.pnHeader.Controls.Add(this.lblPestaña);
             this.pnHeader.Dock = System.Windows.Forms.DockStyle.Top;
@@ -118,28 +150,29 @@
             this.pnHeader.Size = new System.Drawing.Size(1217, 69);
             this.pnHeader.TabIndex = 1;
             // 
-            // txtIDempleado
+            // txtID
             // 
-            this.txtIDempleado.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.txtIDempleado.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIDempleado.Location = new System.Drawing.Point(770, 15);
-            this.txtIDempleado.Name = "txtIDempleado";
-            this.txtIDempleado.Size = new System.Drawing.Size(196, 38);
-            this.txtIDempleado.TabIndex = 4;
-            this.txtIDempleado.Visible = false;
+            this.txtID.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.txtID.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtID.Location = new System.Drawing.Point(770, 15);
+            this.txtID.Name = "txtID";
+            this.txtID.ReadOnly = true;
+            this.txtID.Size = new System.Drawing.Size(196, 38);
+            this.txtID.TabIndex = 4;
+            this.txtID.Visible = false;
             // 
-            // lblIDempleado
+            // lblID
             // 
-            this.lblIDempleado.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lblIDempleado.AutoSize = true;
-            this.lblIDempleado.BackColor = System.Drawing.Color.Transparent;
-            this.lblIDempleado.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIDempleado.Location = new System.Drawing.Point(580, 21);
-            this.lblIDempleado.Name = "lblIDempleado";
-            this.lblIDempleado.Size = new System.Drawing.Size(184, 26);
-            this.lblIDempleado.TabIndex = 3;
-            this.lblIDempleado.Text = "ID del Empleado:";
-            this.lblIDempleado.Visible = false;
+            this.lblID.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblID.AutoSize = true;
+            this.lblID.BackColor = System.Drawing.Color.Transparent;
+            this.lblID.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblID.Location = new System.Drawing.Point(571, 22);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(184, 26);
+            this.lblID.TabIndex = 3;
+            this.lblID.Text = "ID del Empleado:";
+            this.lblID.Visible = false;
             // 
             // btnNuevoEmpleado
             // 
@@ -183,7 +216,7 @@
             // tabEmpleados
             // 
             this.tabEmpleados.BackColor = System.Drawing.Color.PapayaWhip;
-            this.tabEmpleados.Controls.Add(this.dataGridView1);
+            this.tabEmpleados.Controls.Add(this.dtgDepartamentos);
             this.tabEmpleados.Controls.Add(this.tblCuerpo);
             this.tabEmpleados.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabEmpleados.Location = new System.Drawing.Point(4, 34);
@@ -193,14 +226,14 @@
             this.tabEmpleados.TabIndex = 0;
             this.tabEmpleados.Text = "Empleados";
             // 
-            // dataGridView1
+            // dtgDepartamentos
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 284);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1203, 227);
-            this.dataGridView1.TabIndex = 1;
+            this.dtgDepartamentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgDepartamentos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgDepartamentos.Location = new System.Drawing.Point(3, 284);
+            this.dtgDepartamentos.Name = "dtgDepartamentos";
+            this.dtgDepartamentos.Size = new System.Drawing.Size(1203, 227);
+            this.dtgDepartamentos.TabIndex = 1;
             // 
             // tblCuerpo
             // 
@@ -425,6 +458,7 @@
             // cmbCargo
             // 
             this.cmbCargo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbCargo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cmbCargo.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCargo.FormattingEnabled = true;
             this.cmbCargo.Items.AddRange(new object[] {
@@ -549,6 +583,7 @@
             // cmbDepartamento
             // 
             this.cmbDepartamento.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbDepartamento.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cmbDepartamento.FormattingEnabled = true;
             this.cmbDepartamento.Location = new System.Drawing.Point(13, 44);
             this.cmbDepartamento.Name = "cmbDepartamento";
@@ -727,6 +762,8 @@
             // tabDepartamentos
             // 
             this.tabDepartamentos.BackColor = System.Drawing.Color.PapayaWhip;
+            this.tabDepartamentos.Controls.Add(this.dataGridView2);
+            this.tabDepartamentos.Controls.Add(this.tblDepart);
             this.tabDepartamentos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabDepartamentos.Location = new System.Drawing.Point(4, 34);
             this.tabDepartamentos.Name = "tabDepartamentos";
@@ -742,6 +779,275 @@
             // errFormatoDNI
             // 
             this.errFormatoDNI.ContainerControl = this;
+            // 
+            // tblDepart
+            // 
+            this.tblDepart.ColumnCount = 4;
+            this.tblDepart.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tblDepart.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tblDepart.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tblDepart.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tblDepart.Controls.Add(this.panel20, 3, 2);
+            this.tblDepart.Controls.Add(this.panel21, 2, 2);
+            this.tblDepart.Controls.Add(this.panel22, 1, 2);
+            this.tblDepart.Controls.Add(this.panel24, 0, 2);
+            this.tblDepart.Controls.Add(this.panel26, 3, 1);
+            this.tblDepart.Controls.Add(this.panel28, 2, 1);
+            this.tblDepart.Controls.Add(this.panel29, 1, 1);
+            this.tblDepart.Controls.Add(this.panel31, 0, 1);
+            this.tblDepart.Controls.Add(this.panel32, 3, 0);
+            this.tblDepart.Controls.Add(this.panel34, 2, 0);
+            this.tblDepart.Controls.Add(this.panel36, 1, 0);
+            this.tblDepart.Controls.Add(this.panel37, 0, 0);
+            this.tblDepart.Dock = System.Windows.Forms.DockStyle.Top;
+            this.errFormato.SetIconPadding(this.tblDepart, 3);
+            this.tblDepart.Location = new System.Drawing.Point(3, 3);
+            this.tblDepart.Name = "tblDepart";
+            this.tblDepart.RowCount = 3;
+            this.tblDepart.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 52.06612F));
+            this.tblDepart.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 47.93388F));
+            this.tblDepart.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 69F));
+            this.tblDepart.Size = new System.Drawing.Size(1203, 281);
+            this.tblDepart.TabIndex = 1;
+            // 
+            // panel20
+            // 
+            this.panel20.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel20.Location = new System.Drawing.Point(903, 214);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(297, 64);
+            this.panel20.TabIndex = 11;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button1.BackColor = System.Drawing.SystemColors.Window;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(46, 25);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(195, 47);
+            this.button1.TabIndex = 90;
+            this.button1.Text = "Guardar";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // panel21
+            // 
+            this.panel21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel21.Location = new System.Drawing.Point(603, 214);
+            this.panel21.Name = "panel21";
+            this.panel21.Size = new System.Drawing.Size(294, 64);
+            this.panel21.TabIndex = 10;
+            // 
+            // button2
+            // 
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button2.BackColor = System.Drawing.SystemColors.Window;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(42, 25);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(195, 47);
+            this.button2.TabIndex = 91;
+            this.button2.Text = "Limpiar";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // panel22
+            // 
+            this.panel22.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel22.Location = new System.Drawing.Point(303, 214);
+            this.panel22.Name = "panel22";
+            this.panel22.Size = new System.Drawing.Size(294, 64);
+            this.panel22.TabIndex = 9;
+            // 
+            // panel24
+            // 
+            this.panel24.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel24.Location = new System.Drawing.Point(3, 214);
+            this.panel24.Name = "panel24";
+            this.panel24.Size = new System.Drawing.Size(294, 64);
+            this.panel24.TabIndex = 8;
+            // 
+            // panel26
+            // 
+            this.panel26.Controls.Add(this.button1);
+            this.panel26.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel26.Location = new System.Drawing.Point(903, 113);
+            this.panel26.Name = "panel26";
+            this.panel26.Size = new System.Drawing.Size(297, 95);
+            this.panel26.TabIndex = 7;
+            // 
+            // panel28
+            // 
+            this.panel28.Controls.Add(this.button2);
+            this.panel28.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel28.Location = new System.Drawing.Point(603, 113);
+            this.panel28.Name = "panel28";
+            this.panel28.Size = new System.Drawing.Size(294, 95);
+            this.panel28.TabIndex = 6;
+            // 
+            // panel29
+            // 
+            this.panel29.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel29.Location = new System.Drawing.Point(303, 113);
+            this.panel29.Name = "panel29";
+            this.panel29.Size = new System.Drawing.Size(294, 95);
+            this.panel29.TabIndex = 5;
+            // 
+            // panel31
+            // 
+            this.panel31.Controls.Add(this.comboBox2);
+            this.panel31.Controls.Add(this.label18);
+            this.panel31.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel31.Location = new System.Drawing.Point(3, 113);
+            this.panel31.Name = "panel31";
+            this.panel31.Size = new System.Drawing.Size(294, 95);
+            this.panel31.TabIndex = 4;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15"});
+            this.comboBox2.Location = new System.Drawing.Point(13, 44);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(233, 28);
+            this.comboBox2.TabIndex = 74;
+            // 
+            // label18
+            // 
+            this.label18.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(9, 21);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(188, 20);
+            this.label18.TabIndex = 73;
+            this.label18.Text = "Numero de empleados";
+            // 
+            // panel32
+            // 
+            this.panel32.Controls.Add(this.label19);
+            this.panel32.Controls.Add(this.textBox5);
+            this.panel32.Controls.Add(this.panel33);
+            this.panel32.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel32.Location = new System.Drawing.Point(903, 3);
+            this.panel32.Name = "panel32";
+            this.panel32.Size = new System.Drawing.Size(297, 104);
+            this.panel32.TabIndex = 3;
+            // 
+            // label19
+            // 
+            this.label19.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(14, 33);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(190, 20);
+            this.label19.TabIndex = 71;
+            this.label19.Text = "Jefe del departamento";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox5.BackColor = System.Drawing.Color.PapayaWhip;
+            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.Location = new System.Drawing.Point(14, 58);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(269, 19);
+            this.textBox5.TabIndex = 72;
+            // 
+            // panel33
+            // 
+            this.panel33.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel33.BackColor = System.Drawing.Color.Gray;
+            this.panel33.Location = new System.Drawing.Point(14, 79);
+            this.panel33.Name = "panel33";
+            this.panel33.Size = new System.Drawing.Size(266, 1);
+            this.panel33.TabIndex = 70;
+            // 
+            // panel34
+            // 
+            this.panel34.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel34.Location = new System.Drawing.Point(603, 3);
+            this.panel34.Name = "panel34";
+            this.panel34.Size = new System.Drawing.Size(294, 104);
+            this.panel34.TabIndex = 2;
+            // 
+            // panel36
+            // 
+            this.panel36.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel36.Location = new System.Drawing.Point(303, 3);
+            this.panel36.Name = "panel36";
+            this.panel36.Size = new System.Drawing.Size(294, 104);
+            this.panel36.TabIndex = 1;
+            // 
+            // panel37
+            // 
+            this.panel37.Controls.Add(this.label22);
+            this.panel37.Controls.Add(this.txtNombreDepartamento);
+            this.panel37.Controls.Add(this.panel38);
+            this.panel37.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel37.Location = new System.Drawing.Point(3, 3);
+            this.panel37.Name = "panel37";
+            this.panel37.Size = new System.Drawing.Size(294, 104);
+            this.panel37.TabIndex = 0;
+            // 
+            // label22
+            // 
+            this.label22.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(13, 33);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(217, 20);
+            this.label22.TabIndex = 63;
+            this.label22.Text = "Nombre del departamento";
+            // 
+            // txtNombreDepartamento
+            // 
+            this.txtNombreDepartamento.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtNombreDepartamento.BackColor = System.Drawing.Color.PapayaWhip;
+            this.txtNombreDepartamento.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNombreDepartamento.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombreDepartamento.Location = new System.Drawing.Point(13, 58);
+            this.txtNombreDepartamento.Name = "txtNombreDepartamento";
+            this.txtNombreDepartamento.Size = new System.Drawing.Size(269, 19);
+            this.txtNombreDepartamento.TabIndex = 64;
+            // 
+            // panel38
+            // 
+            this.panel38.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel38.BackColor = System.Drawing.Color.Gray;
+            this.panel38.Location = new System.Drawing.Point(13, 79);
+            this.panel38.Name = "panel38";
+            this.panel38.Size = new System.Drawing.Size(266, 1);
+            this.panel38.TabIndex = 62;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView2.Location = new System.Drawing.Point(3, 284);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(1203, 227);
+            this.dataGridView2.TabIndex = 2;
             // 
             // Form1
             // 
@@ -760,7 +1066,7 @@
             this.pnHeader.PerformLayout();
             this.tbDepartamentos.ResumeLayout(false);
             this.tabEmpleados.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgDepartamentos)).EndInit();
             this.tblCuerpo.ResumeLayout(false);
             this.panel19.ResumeLayout(false);
             this.panel18.ResumeLayout(false);
@@ -784,8 +1090,19 @@
             this.panel9.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
+            this.tabDepartamentos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errFormato)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errFormatoDNI)).EndInit();
+            this.tblDepart.ResumeLayout(false);
+            this.panel26.ResumeLayout(false);
+            this.panel28.ResumeLayout(false);
+            this.panel31.ResumeLayout(false);
+            this.panel31.PerformLayout();
+            this.panel32.ResumeLayout(false);
+            this.panel32.PerformLayout();
+            this.panel37.ResumeLayout(false);
+            this.panel37.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -798,8 +1115,8 @@
         private System.Windows.Forms.TabPage tabDepartamentos;
         private System.Windows.Forms.Label lblPestaña;
         private System.Windows.Forms.Button btnNuevoEmpleado;
-        private System.Windows.Forms.Label lblIDempleado;
-        private System.Windows.Forms.TextBox txtIDempleado;
+        private System.Windows.Forms.Label lblID;
+        private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.ErrorProvider errFormato;
         private System.Windows.Forms.TableLayoutPanel tblCuerpo;
         private System.Windows.Forms.Button btnLimpiar;
@@ -844,8 +1161,32 @@
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dtgDepartamentos;
         private System.Windows.Forms.ErrorProvider errFormatoDNI;
+        private System.Windows.Forms.TableLayoutPanel tblDepart;
+        private System.Windows.Forms.Panel panel20;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel21;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Panel panel22;
+        private System.Windows.Forms.Panel panel24;
+        private System.Windows.Forms.Panel panel26;
+        private System.Windows.Forms.Panel panel28;
+        private System.Windows.Forms.Panel panel29;
+        private System.Windows.Forms.Panel panel31;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Panel panel32;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Panel panel33;
+        private System.Windows.Forms.Panel panel34;
+        private System.Windows.Forms.Panel panel36;
+        private System.Windows.Forms.Panel panel37;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox txtNombreDepartamento;
+        private System.Windows.Forms.Panel panel38;
+        private System.Windows.Forms.DataGridView dataGridView2;
     }
 }
 

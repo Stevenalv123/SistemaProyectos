@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaProyectos.Datos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -52,6 +53,7 @@ namespace SistemaProyectos
                     txtID.Visible = true;
                     txtNombreEmpleado.Focus();
                     tblDepart.Visible=false;
+                    txtID.Text = GenerarCodigo();
                     break;
                 case 1:
                     tblDepart.Visible = true;
@@ -59,6 +61,7 @@ namespace SistemaProyectos
                     txtID.Visible=true;
                     txtNombreDepartamento.Focus();
                     tblCuerpo.Visible=false;
+                    txtID.Text= GenerarCodigo();
                     break;
             }
         }
@@ -161,6 +164,71 @@ namespace SistemaProyectos
         private void button2_Click(object sender, EventArgs e)
         {
             LimpiarControles();
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string idEmpleado = txtID.Text;
+                string nombreEmpleado = txtNombreEmpleado.Text;
+                DateTime fechaNacimiento = dtpFechaNacimiento.Value;
+                int edadEmpleado = Convert.ToInt32(txtEdad.Text);
+                string CedulaEmpleado = txtDNI.Text;
+                DateTime fechaContratacion= DateTime.Now;
+                string Departamento = cmbDepartamento.Text;
+                double salario = Convert.ToDouble(txtSalario.Text);
+                string cargo=cmbCargo.Text;
+                string correoElectronico=txtCorreo.Text;
+                string numeroTelefono = txtnumeroTelefono.Text;
+                string lugarResidencia = txtResidencia.Text;
+
+                Empleado empleado = new Empleado(nombreEmpleado, idEmpleado, fechaNacimiento, edadEmpleado, CedulaEmpleado, fechaContratacion, Departamento, salario, cargo, correoElectronico, numeroTelefono, lugarResidencia);
+
+                MessageBox.Show("El empleado se guardo correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LimpiarControles();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al Guardar el empleado {ex}","Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string idDepartamento=txtID.Text;
+                string nombreDepartamento = txtNombreDepartamento.Text;
+                string jefeDepartamento = txtJefeDepartamento.Text;
+                int cantEmpleados=Convert.ToInt32(cmbNumeroEmpleados.SelectedIndex.ToString());
+
+                Departamento departamento=new Departamento(idDepartamento,nombreDepartamento,jefeDepartamento,cantEmpleados);
+
+                MessageBox.Show("El departamento se guardo correctamente","Exito",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                LimpiarControles();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error al Guardar el departamento", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private string GenerarCodigo()
+        {
+            Random random = new Random();
+            int numRandom = random.Next(100000, 999999);
+            switch (selectedIndex)
+            {
+                case 0:
+                    return $"E{numRandom}";
+                case 1:
+                    return $"D{numRandom}";
+                default:
+                    return null;
+            }
+                
         }
     }
 }

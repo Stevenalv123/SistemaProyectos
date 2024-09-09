@@ -82,17 +82,16 @@
             this.txtNombreEmpleado = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tabDepartamentos = new System.Windows.Forms.TabPage();
-            this.errFormato = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errFormatoDNI = new System.Windows.Forms.ErrorProvider(this.components);
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.tblDepart = new System.Windows.Forms.TableLayoutPanel();
             this.panel20 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel21 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
             this.panel22 = new System.Windows.Forms.Panel();
             this.panel24 = new System.Windows.Forms.Panel();
             this.panel26 = new System.Windows.Forms.Panel();
+            this.btnGuardarDepa = new System.Windows.Forms.Button();
             this.panel28 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel29 = new System.Windows.Forms.Panel();
             this.panel31 = new System.Windows.Forms.Panel();
             this.cmbNumeroEmpleados = new System.Windows.Forms.ComboBox();
@@ -107,7 +106,8 @@
             this.label22 = new System.Windows.Forms.Label();
             this.txtNombreDepartamento = new System.Windows.Forms.TextBox();
             this.panel38 = new System.Windows.Forms.Panel();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.errFormato = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errFormatoDNI = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnHeader.SuspendLayout();
             this.tbDepartamentos.SuspendLayout();
             this.tabEmpleados.SuspendLayout();
@@ -126,15 +126,15 @@
             this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
             this.tabDepartamentos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errFormato)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errFormatoDNI)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tblDepart.SuspendLayout();
             this.panel26.SuspendLayout();
             this.panel28.SuspendLayout();
             this.panel31.SuspendLayout();
             this.panel32.SuspendLayout();
             this.panel37.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errFormato)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errFormatoDNI)).BeginInit();
             this.SuspendLayout();
             // 
             // pnHeader
@@ -287,6 +287,7 @@
             this.btnGuardar.TabIndex = 90;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // panel18
             // 
@@ -773,13 +774,14 @@
             this.tabDepartamentos.TabIndex = 1;
             this.tabDepartamentos.Text = "Departamentos";
             // 
-            // errFormato
+            // dataGridView2
             // 
-            this.errFormato.ContainerControl = this;
-            // 
-            // errFormatoDNI
-            // 
-            this.errFormatoDNI.ContainerControl = this;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView2.Location = new System.Drawing.Point(3, 284);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(1203, 227);
+            this.dataGridView2.TabIndex = 2;
             // 
             // tblDepart
             // 
@@ -819,20 +821,6 @@
             this.panel20.Size = new System.Drawing.Size(297, 64);
             this.panel20.TabIndex = 11;
             // 
-            // button1
-            // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.BackColor = System.Drawing.SystemColors.Window;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(46, 25);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(195, 47);
-            this.button1.TabIndex = 90;
-            this.button1.Text = "Guardar";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
             // panel21
             // 
             this.panel21.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -840,21 +828,6 @@
             this.panel21.Name = "panel21";
             this.panel21.Size = new System.Drawing.Size(294, 64);
             this.panel21.TabIndex = 10;
-            // 
-            // button2
-            // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button2.BackColor = System.Drawing.SystemColors.Window;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(42, 25);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(195, 47);
-            this.button2.TabIndex = 91;
-            this.button2.Text = "Limpiar";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // panel22
             // 
@@ -874,12 +847,27 @@
             // 
             // panel26
             // 
-            this.panel26.Controls.Add(this.button1);
+            this.panel26.Controls.Add(this.btnGuardarDepa);
             this.panel26.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel26.Location = new System.Drawing.Point(903, 113);
             this.panel26.Name = "panel26";
             this.panel26.Size = new System.Drawing.Size(297, 95);
             this.panel26.TabIndex = 7;
+            // 
+            // btnGuardarDepa
+            // 
+            this.btnGuardarDepa.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnGuardarDepa.BackColor = System.Drawing.SystemColors.Window;
+            this.btnGuardarDepa.FlatAppearance.BorderSize = 0;
+            this.btnGuardarDepa.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnGuardarDepa.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarDepa.Location = new System.Drawing.Point(46, 25);
+            this.btnGuardarDepa.Name = "btnGuardarDepa";
+            this.btnGuardarDepa.Size = new System.Drawing.Size(195, 47);
+            this.btnGuardarDepa.TabIndex = 90;
+            this.btnGuardarDepa.Text = "Guardar";
+            this.btnGuardarDepa.UseVisualStyleBackColor = false;
+            this.btnGuardarDepa.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel28
             // 
@@ -889,6 +877,21 @@
             this.panel28.Name = "panel28";
             this.panel28.Size = new System.Drawing.Size(294, 95);
             this.panel28.TabIndex = 6;
+            // 
+            // button2
+            // 
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button2.BackColor = System.Drawing.SystemColors.Window;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(42, 25);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(195, 47);
+            this.button2.TabIndex = 91;
+            this.button2.Text = "Limpiar";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // panel29
             // 
@@ -1042,14 +1045,13 @@
             this.panel38.Size = new System.Drawing.Size(266, 1);
             this.panel38.TabIndex = 62;
             // 
-            // dataGridView2
+            // errFormato
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(3, 284);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(1203, 227);
-            this.dataGridView2.TabIndex = 2;
+            this.errFormato.ContainerControl = this;
+            // 
+            // errFormatoDNI
+            // 
+            this.errFormatoDNI.ContainerControl = this;
             // 
             // Form1
             // 
@@ -1093,8 +1095,7 @@
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.tabDepartamentos.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.errFormato)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errFormatoDNI)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.tblDepart.ResumeLayout(false);
             this.panel26.ResumeLayout(false);
             this.panel28.ResumeLayout(false);
@@ -1104,7 +1105,8 @@
             this.panel32.PerformLayout();
             this.panel37.ResumeLayout(false);
             this.panel37.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errFormato)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errFormatoDNI)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1167,7 +1169,7 @@
         private System.Windows.Forms.ErrorProvider errFormatoDNI;
         private System.Windows.Forms.TableLayoutPanel tblDepart;
         private System.Windows.Forms.Panel panel20;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnGuardarDepa;
         private System.Windows.Forms.Panel panel21;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel22;

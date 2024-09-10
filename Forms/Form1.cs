@@ -21,7 +21,7 @@ namespace SistemaProyectos
             InitializeComponent();
         }
         int selectedIndex;
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        private void tbDepartamentos_SelectedIndexChanged(object sender, EventArgs e)
         {
             OcultarElementos();
         }

@@ -211,7 +211,7 @@
             this.tbDepartamentos.SelectedIndex = 0;
             this.tbDepartamentos.Size = new System.Drawing.Size(1217, 552);
             this.tbDepartamentos.TabIndex = 2;
-            this.tbDepartamentos.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
+            this.tbDepartamentos.SelectedIndexChanged += new System.EventHandler(this.tbDepartamentos_SelectedIndexChanged);
             // 
             // tabEmpleados
             // 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,18 +9,18 @@ namespace SistemaProyectos.Datos
 {
     public class Empleado
     {
-        private string nombreCompleto;
+        public string nombreCompleto {  get; set; }
         public string ID {  get; set; }
-        private DateTime fechaNacimiento;
-        private int Edad;
-        private string CedulaID;
-        private DateTime fechaContratacion;
+        public DateTime fechaNacimiento {  get; set; }
+        public int Edad {  get; set; }
+        public string CedulaID { get; set; }
+        public DateTime fechaContratacion {  get; set; }
         public string departamento { get; set; }
-        private double salario;
+        public double salario { get; set; }
         public string cargo {  get; set; }
-        private string correoElectronico;
-        private string numeroTelefono;
-        private string lugarResidencia;
+        public string correoElectronico { get; set; }
+        public string numeroTelefono { get; set; }
+        public string lugarResidencia { get; set; }
 
         public Empleado(string nombreCompleto, string ID, DateTime fechaNacimiento, int edad, string cedulaID, DateTime fechaContratacion, string departamento, double salario, string cargo, string correoElectronico, string numeroTelefono, string lugarResidencia)
         {

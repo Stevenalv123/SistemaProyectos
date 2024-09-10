@@ -9,8 +9,8 @@ namespace SistemaProyectos.Datos
     public class Departamento
     {
         public string id {  get; set; }
-        private string nombre;
-        private string jefe;
+        public string nombre { get; set; }
+        public string jefe {  get; set; }
         public int numEmpleados { get; set; }
 
         public Departamento(string id,string nombre, string jefe, int numEmpleados)
@@ -19,12 +19,7 @@ namespace SistemaProyectos.Datos
             this.nombre = nombre;
             this.jefe = jefe;
             this.numEmpleados=numEmpleados;
-        }
-        
-
-
-        
-            
+        }  
         
     }
 }

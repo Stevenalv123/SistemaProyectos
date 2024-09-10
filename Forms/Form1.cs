@@ -14,6 +14,8 @@ namespace SistemaProyectos
 {
     public partial class Form1 : Form
     {
+        List<Empleado> listaEmpleados=new List<Empleado>();
+        List<Departamento> listaDepartamentos=new List<Departamento>();
         public Form1()
         {
             InitializeComponent();
@@ -54,6 +56,7 @@ namespace SistemaProyectos
                     txtNombreEmpleado.Focus();
                     tblDepart.Visible=false;
                     txtID.Text = GenerarCodigo();
+                    MostrarDepartamentos();
                     break;
                 case 1:
                     tblDepart.Visible = true;
@@ -63,6 +66,14 @@ namespace SistemaProyectos
                     tblCuerpo.Visible=false;
                     txtID.Text= GenerarCodigo();
                     break;
+            }
+        }
+
+        public void MostrarDepartamentos()
+        {
+            foreach(var departamentos in listaDepartamentos)
+            {
+                cmbDepartamento.Items.Add(departamentos.nombre);
             }
         }
 
@@ -151,8 +162,8 @@ namespace SistemaProyectos
             txtDNI.Clear();
             txtSalario.Clear();
             txtCorreo.Clear();
-            cmbCargo.Items.Clear();
-            cmbDepartamento.Items.Clear();
+            cmbCargo.Text="";
+            cmbDepartamento.Text = "";
             txtResidencia.Clear();
             txtnumeroTelefono.Clear();
             txtEdad.Clear();
@@ -173,7 +184,7 @@ namespace SistemaProyectos
                 string idEmpleado = txtID.Text;
                 string nombreEmpleado = txtNombreEmpleado.Text;
                 DateTime fechaNacimiento = dtpFechaNacimiento.Value;
-                int edadEmpleado = Convert.ToInt32(txtEdad.Text);
+                int edadEmpleado = Convert.ToInt32(txtEdad.Text[1]);
                 string CedulaEmpleado = txtDNI.Text;
                 DateTime fechaContratacion= DateTime.Now;
                 string Departamento = cmbDepartamento.Text;
@@ -184,9 +195,12 @@ namespace SistemaProyectos
                 string lugarResidencia = txtResidencia.Text;
 
                 Empleado empleado = new Empleado(nombreEmpleado, idEmpleado, fechaNacimiento, edadEmpleado, CedulaEmpleado, fechaContratacion, Departamento, salario, cargo, correoElectronico, numeroTelefono, lugarResidencia);
+                listaEmpleados.Add(empleado);
+
 
                 MessageBox.Show("El empleado se guardo correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LimpiarControles();
+                MostrarDatos();
 
             }
             catch (Exception ex)
@@ -205,9 +219,12 @@ namespace SistemaProyectos
                 int cantEmpleados=Convert.ToInt32(cmbNumeroEmpleados.SelectedIndex.ToString());
 
                 Departamento departamento=new Departamento(idDepartamento,nombreDepartamento,jefeDepartamento,cantEmpleados);
+                
+                listaDepartamentos.Add(departamento);
 
                 MessageBox.Show("El departamento se guardo correctamente","Exito",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 LimpiarControles();
+                MostrarDatos();
             }
             catch (Exception)
             {
@@ -229,6 +246,72 @@ namespace SistemaProyectos
                     return null;
             }
                 
+        }
+
+        public void MostrarDatos()
+        {
+            DataTable dt = new DataTable();
+            switch (selectedIndex)
+            {
+                case 0:
+                    dt.Columns.Add("ID",typeof(string));
+                    dt.Columns.Add("Nombre",typeof(string));
+                    dt.Columns.Add("Fecha de Nacimiento",typeof (DateTime));
+                    dt.Columns.Add("Edad",typeof(int));
+                    dt.Columns.Add("Cedula", typeof(string));
+                    dt.Columns.Add("Departamento", typeof(string));
+                    dt.Columns.Add("Salario", typeof(double));
+                    dt.Columns.Add("Cargo",typeof(string));
+                    dt.Columns.Add("Correo electronico", typeof(string));
+                    dt.Columns.Add("Numero de telefono", typeof (string));
+                    dt.Columns.Add("Lugar de residencia", typeof(string));
+                    dt.Columns.Add("Fecha de contratacion",typeof(DateTime));
+
+                    foreach(var empleados in listaEmpleados)
+                    {
+                        DataRow row = dt.NewRow();
+                        row["ID"]=empleados.ID;
+                        row["Nombre"] = empleados.nombreCompleto;
+                        row["Fecha de Nacimiento"]=empleados.fechaNacimiento;
+                        row["Edad"] = empleados.Edad;
+                        row["Cedula"]=empleados.CedulaID;
+                        row["Departamento"] = empleados.departamento;
+                        row["Salario"] = empleados.salario;
+                        row["Cargo"] = empleados.cargo;
+                        row["Correo electronico"] = empleados.correoElectronico;
+                        row["Numero de telefono"] = empleados.numeroTelefono;
+                        row["Lugar de residencia"] = empleados.lugarResidencia;
+                        row["Fecha de contratacion"] = empleados.fechaContratacion;
+
+                        dt.Rows.Add(row);
+                    }
+
+                    dataEmpleados.DataSource = dt;
+                    break;
+                case 1:
+                    dt.Columns.Add("ID",typeof(string));
+                    dt.Columns.Add("Nombre",typeof(string));
+                    dt.Columns.Add("Jefe",typeof (string));
+                    dt.Columns.Add("Numero de empleados", typeof(int));
+
+                    foreach(var departamentos in listaDepartamentos)
+                    {
+                        DataRow row= dt.NewRow();
+                        row["ID"] = departamentos.id;
+                        row["Nombre"] = departamentos.nombre;
+                        row["Jefe"] = departamentos.jefe;
+                        row["Numero de empleados"] = departamentos.numEmpleados;
+
+                        dt.Rows.Add(row);
+                    }
+                    dataDepartamentos.DataSource = dt;
+                    break;
+            }
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

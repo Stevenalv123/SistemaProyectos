@@ -37,7 +37,7 @@
             this.lblPestaña = new System.Windows.Forms.Label();
             this.tbDepartamentos = new System.Windows.Forms.TabControl();
             this.tabEmpleados = new System.Windows.Forms.TabPage();
-            this.dtgDepartamentos = new System.Windows.Forms.DataGridView();
+            this.dataEmpleados = new System.Windows.Forms.DataGridView();
             this.tblCuerpo = new System.Windows.Forms.TableLayoutPanel();
             this.panel19 = new System.Windows.Forms.Panel();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -82,7 +82,7 @@
             this.txtNombreEmpleado = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tabDepartamentos = new System.Windows.Forms.TabPage();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dataDepartamentos = new System.Windows.Forms.DataGridView();
             this.tblDepart = new System.Windows.Forms.TableLayoutPanel();
             this.panel20 = new System.Windows.Forms.Panel();
             this.panel21 = new System.Windows.Forms.Panel();
@@ -111,7 +111,7 @@
             this.pnHeader.SuspendLayout();
             this.tbDepartamentos.SuspendLayout();
             this.tabEmpleados.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgDepartamentos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataEmpleados)).BeginInit();
             this.tblCuerpo.SuspendLayout();
             this.panel19.SuspendLayout();
             this.panel18.SuspendLayout();
@@ -126,7 +126,7 @@
             this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
             this.tabDepartamentos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataDepartamentos)).BeginInit();
             this.tblDepart.SuspendLayout();
             this.panel26.SuspendLayout();
             this.panel28.SuspendLayout();
@@ -216,7 +216,7 @@
             // tabEmpleados
             // 
             this.tabEmpleados.BackColor = System.Drawing.Color.PapayaWhip;
-            this.tabEmpleados.Controls.Add(this.dtgDepartamentos);
+            this.tabEmpleados.Controls.Add(this.dataEmpleados);
             this.tabEmpleados.Controls.Add(this.tblCuerpo);
             this.tabEmpleados.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabEmpleados.Location = new System.Drawing.Point(4, 34);
@@ -226,14 +226,14 @@
             this.tabEmpleados.TabIndex = 0;
             this.tabEmpleados.Text = "Empleados";
             // 
-            // dtgDepartamentos
+            // dataEmpleados
             // 
-            this.dtgDepartamentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgDepartamentos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtgDepartamentos.Location = new System.Drawing.Point(3, 284);
-            this.dtgDepartamentos.Name = "dtgDepartamentos";
-            this.dtgDepartamentos.Size = new System.Drawing.Size(1203, 227);
-            this.dtgDepartamentos.TabIndex = 1;
+            this.dataEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataEmpleados.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataEmpleados.Location = new System.Drawing.Point(3, 284);
+            this.dataEmpleados.Name = "dataEmpleados";
+            this.dataEmpleados.Size = new System.Drawing.Size(1203, 227);
+            this.dataEmpleados.TabIndex = 1;
             // 
             // tblCuerpo
             // 
@@ -764,7 +764,7 @@
             // tabDepartamentos
             // 
             this.tabDepartamentos.BackColor = System.Drawing.Color.PapayaWhip;
-            this.tabDepartamentos.Controls.Add(this.dataGridView2);
+            this.tabDepartamentos.Controls.Add(this.dataDepartamentos);
             this.tabDepartamentos.Controls.Add(this.tblDepart);
             this.tabDepartamentos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabDepartamentos.Location = new System.Drawing.Point(4, 34);
@@ -774,14 +774,15 @@
             this.tabDepartamentos.TabIndex = 1;
             this.tabDepartamentos.Text = "Departamentos";
             // 
-            // dataGridView2
+            // dataDepartamentos
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(3, 284);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(1203, 227);
-            this.dataGridView2.TabIndex = 2;
+            this.dataDepartamentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataDepartamentos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataDepartamentos.Location = new System.Drawing.Point(3, 284);
+            this.dataDepartamentos.Name = "dataDepartamentos";
+            this.dataDepartamentos.Size = new System.Drawing.Size(1203, 227);
+            this.dataDepartamentos.TabIndex = 2;
+            this.dataDepartamentos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
             // tblDepart
             // 
@@ -1070,7 +1071,7 @@
             this.pnHeader.PerformLayout();
             this.tbDepartamentos.ResumeLayout(false);
             this.tabEmpleados.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtgDepartamentos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataEmpleados)).EndInit();
             this.tblCuerpo.ResumeLayout(false);
             this.panel19.ResumeLayout(false);
             this.panel18.ResumeLayout(false);
@@ -1095,7 +1096,7 @@
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.tabDepartamentos.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataDepartamentos)).EndInit();
             this.tblDepart.ResumeLayout(false);
             this.panel26.ResumeLayout(false);
             this.panel28.ResumeLayout(false);
@@ -1165,7 +1166,7 @@
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.DataGridView dtgDepartamentos;
+        private System.Windows.Forms.DataGridView dataEmpleados;
         private System.Windows.Forms.ErrorProvider errFormatoDNI;
         private System.Windows.Forms.TableLayoutPanel tblDepart;
         private System.Windows.Forms.Panel panel20;
@@ -1190,7 +1191,7 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox txtNombreDepartamento;
         private System.Windows.Forms.Panel panel38;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dataDepartamentos;
     }
 }
 

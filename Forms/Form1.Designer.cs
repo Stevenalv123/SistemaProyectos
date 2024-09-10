@@ -91,7 +91,7 @@
             this.panel26 = new System.Windows.Forms.Panel();
             this.btnGuardarDepa = new System.Windows.Forms.Button();
             this.panel28 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnLimpiarDepa = new System.Windows.Forms.Button();
             this.panel29 = new System.Windows.Forms.Panel();
             this.panel31 = new System.Windows.Forms.Panel();
             this.cmbNumeroEmpleados = new System.Windows.Forms.ComboBox();
@@ -228,10 +228,14 @@
             // 
             // dataEmpleados
             // 
+            this.dataEmpleados.AllowUserToAddRows = false;
+            this.dataEmpleados.AllowUserToDeleteRows = false;
+            this.dataEmpleados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataEmpleados.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataEmpleados.Location = new System.Drawing.Point(3, 284);
             this.dataEmpleados.Name = "dataEmpleados";
+            this.dataEmpleados.ReadOnly = true;
             this.dataEmpleados.Size = new System.Drawing.Size(1203, 227);
             this.dataEmpleados.TabIndex = 1;
             // 
@@ -426,7 +430,6 @@
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(269, 19);
             this.txtCorreo.TabIndex = 83;
-            this.txtCorreo.Click += new System.EventHandler(this.txtCorreo_Click);
             // 
             // panel5
             // 
@@ -460,6 +463,7 @@
             // cmbCargo
             // 
             this.cmbCargo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbCargo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCargo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cmbCargo.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCargo.FormattingEnabled = true;
@@ -551,7 +555,7 @@
             this.txtSalario.Name = "txtSalario";
             this.txtSalario.Size = new System.Drawing.Size(133, 19);
             this.txtSalario.TabIndex = 77;
-            this.txtSalario.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtSalario.TextChanged += new System.EventHandler(this.txtSalario_TextChanged);
             // 
             // panel4
             // 
@@ -585,6 +589,7 @@
             // cmbDepartamento
             // 
             this.cmbDepartamento.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDepartamento.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cmbDepartamento.FormattingEnabled = true;
             this.cmbDepartamento.Location = new System.Drawing.Point(13, 44);
@@ -612,7 +617,6 @@
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(297, 104);
             this.panel11.TabIndex = 3;
-            this.panel11.Paint += new System.Windows.Forms.PaintEventHandler(this.panel11_Paint);
             // 
             // label4
             // 
@@ -634,7 +638,7 @@
             this.txtDNI.Name = "txtDNI";
             this.txtDNI.Size = new System.Drawing.Size(269, 19);
             this.txtDNI.TabIndex = 72;
-            this.txtDNI.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.txtDNI.TextChanged += new System.EventHandler(this.txtDNI_TextChanged);
             // 
             // panel3
             // 
@@ -776,13 +780,13 @@
             // 
             // dataDepartamentos
             // 
+            this.dataDepartamentos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataDepartamentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataDepartamentos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataDepartamentos.Location = new System.Drawing.Point(3, 284);
             this.dataDepartamentos.Name = "dataDepartamentos";
             this.dataDepartamentos.Size = new System.Drawing.Size(1203, 227);
             this.dataDepartamentos.TabIndex = 2;
-            this.dataDepartamentos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
             // tblDepart
             // 
@@ -868,31 +872,31 @@
             this.btnGuardarDepa.TabIndex = 90;
             this.btnGuardarDepa.Text = "Guardar";
             this.btnGuardarDepa.UseVisualStyleBackColor = false;
-            this.btnGuardarDepa.Click += new System.EventHandler(this.button1_Click);
+            this.btnGuardarDepa.Click += new System.EventHandler(this.btnGuardarDepa_Click);
             // 
             // panel28
             // 
-            this.panel28.Controls.Add(this.button2);
+            this.panel28.Controls.Add(this.btnLimpiarDepa);
             this.panel28.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel28.Location = new System.Drawing.Point(603, 113);
             this.panel28.Name = "panel28";
             this.panel28.Size = new System.Drawing.Size(294, 95);
             this.panel28.TabIndex = 6;
             // 
-            // button2
+            // btnLimpiarDepa
             // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button2.BackColor = System.Drawing.SystemColors.Window;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(42, 25);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(195, 47);
-            this.button2.TabIndex = 91;
-            this.button2.Text = "Limpiar";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnLimpiarDepa.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnLimpiarDepa.BackColor = System.Drawing.SystemColors.Window;
+            this.btnLimpiarDepa.FlatAppearance.BorderSize = 0;
+            this.btnLimpiarDepa.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnLimpiarDepa.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiarDepa.Location = new System.Drawing.Point(42, 25);
+            this.btnLimpiarDepa.Name = "btnLimpiarDepa";
+            this.btnLimpiarDepa.Size = new System.Drawing.Size(195, 47);
+            this.btnLimpiarDepa.TabIndex = 91;
+            this.btnLimpiarDepa.Text = "Limpiar";
+            this.btnLimpiarDepa.UseVisualStyleBackColor = false;
+            this.btnLimpiarDepa.Click += new System.EventHandler(this.btnLimpiarDepa_Click);
             // 
             // panel29
             // 
@@ -915,6 +919,7 @@
             // cmbNumeroEmpleados
             // 
             this.cmbNumeroEmpleados.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbNumeroEmpleados.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbNumeroEmpleados.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cmbNumeroEmpleados.FormattingEnabled = true;
             this.cmbNumeroEmpleados.Items.AddRange(new object[] {
@@ -1172,7 +1177,7 @@
         private System.Windows.Forms.Panel panel20;
         private System.Windows.Forms.Button btnGuardarDepa;
         private System.Windows.Forms.Panel panel21;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnLimpiarDepa;
         private System.Windows.Forms.Panel panel22;
         private System.Windows.Forms.Panel panel24;
         private System.Windows.Forms.Panel panel26;

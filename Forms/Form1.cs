@@ -23,6 +23,11 @@ namespace SistemaProyectos
         int selectedIndex;
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            OcultarElementos();
+        }
+
+        public void OcultarElementos()
+        {
             selectedIndex = tbDepartamentos.SelectedIndex;
             switch (selectedIndex)
             {
@@ -30,23 +35,24 @@ namespace SistemaProyectos
                     lblID.Visible = false;
                     txtID.Visible = false;
                     lblPestaña.Text = "Empleados";
-                    lblID.Text= "ID del Empleado:"; lblID.Font = new Font(btnNuevoEmpleado.Font.FontFamily, 16, FontStyle.Bold);
-                    btnNuevoEmpleado.Text = "Nuevo Empleado"; btnNuevoEmpleado.Font = new Font(btnNuevoEmpleado.Font.FontFamily, 16,FontStyle.Bold);
-                    break; 
+                    lblID.Text = "ID del Empleado:"; lblID.Font = new Font(btnNuevoEmpleado.Font.FontFamily, 16, FontStyle.Bold);
+                    tblCuerpo.Visible = false;
+                    btnNuevoEmpleado.Text = "Nuevo Empleado"; btnNuevoEmpleado.Font = new Font(btnNuevoEmpleado.Font.FontFamily, 16, FontStyle.Bold);
+                    break;
                 case 1:
                     lblID.Visible = false;
                     txtID.Visible = false;
                     lblPestaña.Text = "Departamentos";
                     lblID.Text = "ID del Departamento:"; lblID.Font = new Font(btnNuevoEmpleado.Font.FontFamily, 13, FontStyle.Bold);
                     tblDepart.Visible = false;
-                    btnNuevoEmpleado.Text = "Nuevo Departamento"; btnNuevoEmpleado.Font = new Font(btnNuevoEmpleado.Font.FontFamily, 12,FontStyle.Bold);
+                    btnNuevoEmpleado.Text = "Nuevo Departamento"; btnNuevoEmpleado.Font = new Font(btnNuevoEmpleado.Font.FontFamily, 12, FontStyle.Bold);
                     break;
             }
-
         }
 
         private void btnNuevoEmpleado_Click(object sender, EventArgs e)
         {
+            selectedIndex = tbDepartamentos.SelectedIndex;
             switch (selectedIndex)
             {
                 case 0:
@@ -100,10 +106,9 @@ namespace SistemaProyectos
         }
 
         ErrorProvider errorProvider = new ErrorProvider();
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void txtSalario_TextChanged(object sender, EventArgs e)
         {   
-            if (!System.Text.RegularExpressions.Regex.IsMatch(txtSalario.Text, @"^\d+(,\d+)?$"
-))
+            if (!System.Text.RegularExpressions.Regex.IsMatch(txtSalario.Text, @"^\d+(,\d+)?$"))
             {
                 errorProvider.SetError(txtSalario, "Solo se permiten números.");
             }
@@ -111,11 +116,6 @@ namespace SistemaProyectos
             {
                 errorProvider.SetError(txtSalario, "");
             }
-        }
-
-        private void panel11_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -134,12 +134,7 @@ namespace SistemaProyectos
             }
         }
 
-        private void txtCorreo_Click(object sender, EventArgs e)
-        {
-            ValidarSalario();
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void txtDNI_TextChanged(object sender, EventArgs e)
         {
             if (!System.Text.RegularExpressions.Regex.IsMatch(txtDNI.Text, @"^\d{13}[A-Z]$"))
             {
@@ -162,17 +157,21 @@ namespace SistemaProyectos
             txtDNI.Clear();
             txtSalario.Clear();
             txtCorreo.Clear();
-            cmbCargo.Text="";
-            cmbDepartamento.Text = "";
+            cmbCargo.SelectedIndex=-1;
+            cmbDepartamento.SelectedIndex=-1;
+            cmbDepartamento.Items.Clear();
+            errorProvider.Clear();
+            errFormato.Clear();
+            errFormatoDNI.Clear();
             txtResidencia.Clear();
             txtnumeroTelefono.Clear();
             txtEdad.Clear();
             txtNombreDepartamento.Clear();
             txtJefeDepartamento.Clear();
-            cmbNumeroEmpleados.Items.Clear();
+            cmbNumeroEmpleados.SelectedIndex=-1;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnLimpiarDepa_Click(object sender, EventArgs e)
         {
             LimpiarControles();
         }
@@ -201,15 +200,16 @@ namespace SistemaProyectos
                 MessageBox.Show("El empleado se guardo correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LimpiarControles();
                 MostrarDatos();
+                OcultarElementos();
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show($"Error al Guardar el empleado {ex}","Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error al Guardar el empleado","Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnGuardarDepa_Click(object sender, EventArgs e)
         {
             try
             {
@@ -225,6 +225,7 @@ namespace SistemaProyectos
                 MessageBox.Show("El departamento se guardo correctamente","Exito",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 LimpiarControles();
                 MostrarDatos();
+                OcultarElementos();
             }
             catch (Exception)
             {
@@ -248,8 +249,9 @@ namespace SistemaProyectos
                 
         }
 
-        public void MostrarDatos()
+        private void MostrarDatos()
         {
+            selectedIndex = tbDepartamentos.SelectedIndex;
             DataTable dt = new DataTable();
             switch (selectedIndex)
             {
@@ -307,11 +309,6 @@ namespace SistemaProyectos
                     dataDepartamentos.DataSource = dt;
                     break;
             }
-        }
-
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }

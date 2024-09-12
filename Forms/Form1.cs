@@ -56,13 +56,20 @@ namespace SistemaProyectos
             switch (selectedIndex)
             {
                 case 0:
-                    tblCuerpo.Visible = true;
-                    lblID.Visible = true;
-                    txtID.Visible = true;
-                    txtNombreEmpleado.Focus();
-                    tblDepart.Visible=false;
-                    txtID.Text = GenerarCodigo();
-                    MostrarDepartamentos();
+                    if (dataDepartamentos.Rows.Count > 0)
+                    {
+                        tblCuerpo.Visible = true;
+                        lblID.Visible = true;
+                        txtID.Visible = true;
+                        txtNombreEmpleado.Focus();
+                        tblDepart.Visible = false;
+                        txtID.Text = GenerarCodigo();
+                        MostrarDepartamentos();
+                    }
+                    else 
+                    {
+                        MessageBox.Show("Debe agregar por lo menos 1 departamento", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                     break;
                 case 1:
                     tblDepart.Visible = true;
@@ -148,7 +155,9 @@ namespace SistemaProyectos
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            LimpiarControles();   
+            LimpiarControles();
+            txtNombreEmpleado.Focus();
+            errorProvider.Clear();
         }
 
         private void LimpiarControles()

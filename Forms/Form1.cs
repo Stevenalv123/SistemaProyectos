@@ -191,7 +191,7 @@ namespace SistemaProyectos
                 string idEmpleado = txtID.Text;
                 string nombreEmpleado = txtNombreEmpleado.Text;
                 DateTime fechaNacimiento = dtpFechaNacimiento.Value;
-                int edadEmpleado = Convert.ToInt32(txtEdad.Text[1]);
+                string edadEmpleado = txtEdad.Text;
                 string CedulaEmpleado = txtDNI.Text;
                 DateTime fechaContratacion= DateTime.Now;
                 string Departamento = cmbDepartamento.Text;
@@ -274,7 +274,7 @@ namespace SistemaProyectos
                     dt.Columns.Add("ID",typeof(string));
                     dt.Columns.Add("Nombre",typeof(string));
                     dt.Columns.Add("Fecha de Nacimiento",typeof (DateTime));
-                    dt.Columns.Add("Edad",typeof(int));
+                    dt.Columns.Add("Edad",typeof(string));
                     dt.Columns.Add("Cedula", typeof(string));
                     dt.Columns.Add("Departamento", typeof(string));
                     dt.Columns.Add("Salario", typeof(double));
@@ -357,6 +357,22 @@ namespace SistemaProyectos
             else
             {
                 errorProvider.SetError(txtnumeroTelefono, "");
+            }
+        }
+
+        private void txtNombreEmpleado_TextChanged(object sender, EventArgs e)
+        {
+            ValidarTexto();
+        }
+
+        private void ValidarTexto()
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(txtNombreEmpleado.Text, @"^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$"))
+            {
+                errorProvider.SetError(txtNombreEmpleado, "Formato incorrecto");
+            }else
+            {
+                errorProvider.SetError(txtNombreEmpleado, "");
             }
         }
     }

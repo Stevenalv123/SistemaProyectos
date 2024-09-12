@@ -58,6 +58,8 @@
             this.txtCorreo = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
+            this.txtCargo = new System.Windows.Forms.TextBox();
+            this.panel23 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
@@ -108,8 +110,6 @@
             this.txtNombreDepartamento = new System.Windows.Forms.TextBox();
             this.panel38 = new System.Windows.Forms.Panel();
             this.errFormato = new System.Windows.Forms.ErrorProvider(this.components);
-            this.txtCargo = new System.Windows.Forms.TextBox();
-            this.panel23 = new System.Windows.Forms.Panel();
             this.pnHeader.SuspendLayout();
             this.tbDepartamentos.SuspendLayout();
             this.tabEmpleados.SuspendLayout();
@@ -463,6 +463,26 @@
             this.panel14.Size = new System.Drawing.Size(294, 95);
             this.panel14.TabIndex = 6;
             // 
+            // txtCargo
+            // 
+            this.txtCargo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtCargo.BackColor = System.Drawing.Color.PapayaWhip;
+            this.txtCargo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCargo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCargo.Location = new System.Drawing.Point(13, 52);
+            this.txtCargo.Name = "txtCargo";
+            this.txtCargo.Size = new System.Drawing.Size(269, 19);
+            this.txtCargo.TabIndex = 85;
+            // 
+            // panel23
+            // 
+            this.panel23.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel23.BackColor = System.Drawing.Color.Gray;
+            this.panel23.Location = new System.Drawing.Point(13, 73);
+            this.panel23.Name = "panel23";
+            this.panel23.Size = new System.Drawing.Size(266, 1);
+            this.panel23.TabIndex = 84;
+            // 
             // label8
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -705,6 +725,7 @@
             this.txtNombreEmpleado.Name = "txtNombreEmpleado";
             this.txtNombreEmpleado.Size = new System.Drawing.Size(269, 19);
             this.txtNombreEmpleado.TabIndex = 64;
+            this.txtNombreEmpleado.TextChanged += new System.EventHandler(this.txtNombreEmpleado_TextChanged);
             // 
             // panel2
             // 
@@ -1015,26 +1036,6 @@
             // errFormato
             // 
             this.errFormato.ContainerControl = this;
-            // 
-            // txtCargo
-            // 
-            this.txtCargo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtCargo.BackColor = System.Drawing.Color.PapayaWhip;
-            this.txtCargo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtCargo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCargo.Location = new System.Drawing.Point(13, 52);
-            this.txtCargo.Name = "txtCargo";
-            this.txtCargo.Size = new System.Drawing.Size(269, 19);
-            this.txtCargo.TabIndex = 85;
-            // 
-            // panel23
-            // 
-            this.panel23.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel23.BackColor = System.Drawing.Color.Gray;
-            this.panel23.Location = new System.Drawing.Point(13, 73);
-            this.panel23.Name = "panel23";
-            this.panel23.Size = new System.Drawing.Size(266, 1);
-            this.panel23.TabIndex = 84;
             // 
             // Form1
             // 

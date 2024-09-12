@@ -12,7 +12,7 @@ namespace SistemaProyectos.Datos
         public string nombreCompleto {  get; set; }
         public string ID {  get; set; }
         public DateTime fechaNacimiento {  get; set; }
-        public int Edad {  get; set; }
+        public string Edad {  get; set; }
         public string CedulaID { get; set; }
         public DateTime fechaContratacion {  get; set; }
         public string departamento { get; set; }
@@ -22,7 +22,7 @@ namespace SistemaProyectos.Datos
         public string numeroTelefono { get; set; }
         public string lugarResidencia { get; set; }
 
-        public Empleado(string nombreCompleto, string ID, DateTime fechaNacimiento, int edad, string cedulaID, DateTime fechaContratacion, string departamento, double salario, string cargo, string correoElectronico, string numeroTelefono, string lugarResidencia)
+        public Empleado(string nombreCompleto, string ID, DateTime fechaNacimiento, string edad, string cedulaID, DateTime fechaContratacion, string departamento, double salario, string cargo, string correoElectronico, string numeroTelefono, string lugarResidencia)
         {
             this.salario = salario;
             this.cargo = cargo;

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pnHeader = new System.Windows.Forms.Panel();
             this.txtID = new System.Windows.Forms.TextBox();
@@ -57,7 +59,6 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
-            this.cmbCargo = new System.Windows.Forms.ComboBox();
             this.panel13 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.txtSalario = new System.Windows.Forms.TextBox();
@@ -107,7 +108,8 @@
             this.txtNombreDepartamento = new System.Windows.Forms.TextBox();
             this.panel38 = new System.Windows.Forms.Panel();
             this.errFormato = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errFormatoDNI = new System.Windows.Forms.ErrorProvider(this.components);
+            this.txtCargo = new System.Windows.Forms.TextBox();
+            this.panel23 = new System.Windows.Forms.Panel();
             this.pnHeader.SuspendLayout();
             this.tbDepartamentos.SuspendLayout();
             this.tabEmpleados.SuspendLayout();
@@ -134,7 +136,6 @@
             this.panel32.SuspendLayout();
             this.panel37.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errFormato)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errFormatoDNI)).BeginInit();
             this.SuspendLayout();
             // 
             // pnHeader
@@ -231,7 +232,16 @@
             this.dataEmpleados.AllowUserToAddRows = false;
             this.dataEmpleados.AllowUserToDeleteRows = false;
             this.dataEmpleados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataEmpleados.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dataEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 12F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataEmpleados.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataEmpleados.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataEmpleados.Location = new System.Drawing.Point(3, 284);
             this.dataEmpleados.Name = "dataEmpleados";
@@ -389,6 +399,7 @@
             this.txtnumeroTelefono.Name = "txtnumeroTelefono";
             this.txtnumeroTelefono.Size = new System.Drawing.Size(183, 19);
             this.txtnumeroTelefono.TabIndex = 86;
+            this.txtnumeroTelefono.TextChanged += new System.EventHandler(this.txtnumeroTelefono_TextChanged);
             // 
             // panel6
             // 
@@ -430,6 +441,7 @@
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(269, 19);
             this.txtCorreo.TabIndex = 83;
+            this.txtCorreo.TextChanged += new System.EventHandler(this.txtCorreo_TextChanged);
             // 
             // panel5
             // 
@@ -442,8 +454,9 @@
             // 
             // panel14
             // 
+            this.panel14.Controls.Add(this.txtCargo);
+            this.panel14.Controls.Add(this.panel23);
             this.panel14.Controls.Add(this.label8);
-            this.panel14.Controls.Add(this.cmbCargo);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel14.Location = new System.Drawing.Point(603, 113);
             this.panel14.Name = "panel14";
@@ -459,69 +472,6 @@
             this.label8.Size = new System.Drawing.Size(56, 19);
             this.label8.TabIndex = 79;
             this.label8.Text = "Cargo";
-            // 
-            // cmbCargo
-            // 
-            this.cmbCargo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cmbCargo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCargo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cmbCargo.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbCargo.FormattingEnabled = true;
-            this.cmbCargo.Items.AddRange(new object[] {
-            "Desarrollador Junior (Junior Developer)",
-            "Desarrollador de Software (Software Developer)",
-            "Desarrollador Senior (Senior Developer)",
-            "Ingeniero de Software (Software Engineer)",
-            "Ingeniero Full Stack (Full Stack Engineer)",
-            "Ingeniero Front-End (Front-End Engineer)",
-            "Ingeniero Back-End (Back-End Engineer)",
-            "Desarrollador Móvil (Mobile Developer)",
-            "Desarrollador de Juegos (Game Developer)",
-            "Ingeniero DevOps (DevOps Engineer)",
-            "Arquitecto de Software (Software Architect)",
-            "Líder Técnico (Technical Lead)",
-            "Ingeniero de Sistemas (Systems Engineer)",
-            "Ingeniero de Integración (Integration Engineer)",
-            "Director de Ingeniería (Director of Engineering)",
-            "Chief Technology Officer (CTO)",
-            "Ingeniero de Pruebas de Software (Software Test Engineer)",
-            "Tester Automatizado (Automation Tester)",
-            "Analista de Control de Calidad (QA Analyst)",
-            "Ingeniero de Control de Calidad (QA Engineer)",
-            "Líder de Control de Calidad (QA Lead)",
-            "Gerente de Proyecto (Project Manager)",
-            "Scrum Master",
-            "Product Owner",
-            "Gerente de Producto (Product Manager)",
-            "Analista de Negocios (Business Analyst)",
-            "Gerente de Desarrollo (Development Manager)",
-            "Diseñador UX/UI (UX/UI Designer)",
-            "Investigador de Experiencia de Usuario (User Experience Researcher)",
-            "Arquitecto de Información (Information Architect)",
-            "Diseñador Gráfico (Graphic Designer)",
-            "Director Creativo (Creative Director)",
-            "Administrador de Sistemas (System Administrator)",
-            "Ingeniero de Redes (Network Engineer)",
-            "Ingeniero de Seguridad (Security Engineer)",
-            "Analista de Seguridad (Security Analyst)",
-            "Especialista en Seguridad de la Información (Information Security Specialist)",
-            "Administrador de Bases de Datos (DBA) (Database Administrator)",
-            "Ingeniero de Datos (Data Engineer)",
-            "Científico de Datos (Data Scientist)",
-            "Analista de Datos (Data Analyst)",
-            "Especialista en Big Data (Big Data Specialist)",
-            "Soporte Técnico Nivel 1 (Level 1 Support Technician)",
-            "Ingeniero de Soporte Técnico (Technical Support Engineer)",
-            "Especialista en Soporte de Aplicaciones (Application Support Specialist)",
-            "Ingeniero de Mantenimiento (Maintenance Engineer)",
-            "Chief Executive Officer (CEO)",
-            "Chief Operating Officer (COO)",
-            "Chief Information Officer (CIO)",
-            "Gerente General de TI (IT General Manager)"});
-            this.cmbCargo.Location = new System.Drawing.Point(13, 47);
-            this.cmbCargo.Name = "cmbCargo";
-            this.cmbCargo.Size = new System.Drawing.Size(269, 23);
-            this.cmbCargo.TabIndex = 80;
             // 
             // panel13
             // 
@@ -780,11 +730,22 @@
             // 
             // dataDepartamentos
             // 
+            this.dataDepartamentos.AllowUserToAddRows = false;
+            this.dataDepartamentos.AllowUserToDeleteRows = false;
             this.dataDepartamentos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataDepartamentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataDepartamentos.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataDepartamentos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataDepartamentos.Location = new System.Drawing.Point(3, 284);
             this.dataDepartamentos.Name = "dataDepartamentos";
+            this.dataDepartamentos.ReadOnly = true;
             this.dataDepartamentos.Size = new System.Drawing.Size(1203, 227);
             this.dataDepartamentos.TabIndex = 2;
             // 
@@ -1055,9 +1016,25 @@
             // 
             this.errFormato.ContainerControl = this;
             // 
-            // errFormatoDNI
+            // txtCargo
             // 
-            this.errFormatoDNI.ContainerControl = this;
+            this.txtCargo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtCargo.BackColor = System.Drawing.Color.PapayaWhip;
+            this.txtCargo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCargo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCargo.Location = new System.Drawing.Point(13, 52);
+            this.txtCargo.Name = "txtCargo";
+            this.txtCargo.Size = new System.Drawing.Size(269, 19);
+            this.txtCargo.TabIndex = 85;
+            // 
+            // panel23
+            // 
+            this.panel23.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel23.BackColor = System.Drawing.Color.Gray;
+            this.panel23.Location = new System.Drawing.Point(13, 73);
+            this.panel23.Name = "panel23";
+            this.panel23.Size = new System.Drawing.Size(266, 1);
+            this.panel23.TabIndex = 84;
             // 
             // Form1
             // 
@@ -1112,7 +1089,6 @@
             this.panel37.ResumeLayout(false);
             this.panel37.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errFormato)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errFormatoDNI)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1140,7 +1116,6 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TextBox txtCorreo;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox cmbCargo;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel4;
@@ -1172,7 +1147,6 @@
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.DataGridView dataEmpleados;
-        private System.Windows.Forms.ErrorProvider errFormatoDNI;
         private System.Windows.Forms.TableLayoutPanel tblDepart;
         private System.Windows.Forms.Panel panel20;
         private System.Windows.Forms.Button btnGuardarDepa;
@@ -1197,6 +1171,8 @@
         private System.Windows.Forms.TextBox txtNombreDepartamento;
         private System.Windows.Forms.Panel panel38;
         private System.Windows.Forms.DataGridView dataDepartamentos;
+        private System.Windows.Forms.TextBox txtCargo;
+        private System.Windows.Forms.Panel panel23;
     }
 }
 

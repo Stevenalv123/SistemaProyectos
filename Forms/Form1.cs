@@ -107,10 +107,14 @@ namespace SistemaProyectos
 
         ErrorProvider errorProvider = new ErrorProvider();
         private void txtSalario_TextChanged(object sender, EventArgs e)
-        {   
+        {
+            ValidarSalario();
+        }
+        private void ValidarSalario()
+        {
             if (!System.Text.RegularExpressions.Regex.IsMatch(txtSalario.Text, @"^\d+(,\d+)?$"))
             {
-                errorProvider.SetError(txtSalario, "Solo se permiten números.");
+                errorProvider.SetError(txtSalario, "Solo se permiten números y ,: xx,xxx");
             }
             else
             {
@@ -125,16 +129,12 @@ namespace SistemaProyectos
             
         }
 
-        private void ValidarSalario()
+        private void txtDNI_TextChanged(object sender, EventArgs e)
         {
-            if (!(errFormato.GetError(txtSalario) == ""))
-            {
-                MessageBox.Show("El formato del salario no es valido","Error de formato",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                txtSalario.Focus();
-            }
+            ValidarDNI();
         }
 
-        private void txtDNI_TextChanged(object sender, EventArgs e)
+        private void ValidarDNI()
         {
             if (!System.Text.RegularExpressions.Regex.IsMatch(txtDNI.Text, @"^\d{13}[A-Z]$"))
             {
@@ -157,12 +157,11 @@ namespace SistemaProyectos
             txtDNI.Clear();
             txtSalario.Clear();
             txtCorreo.Clear();
-            cmbCargo.SelectedIndex=-1;
+            txtCargo.Clear();
             cmbDepartamento.SelectedIndex=-1;
             cmbDepartamento.Items.Clear();
             errorProvider.Clear();
             errFormato.Clear();
-            errFormatoDNI.Clear();
             txtResidencia.Clear();
             txtnumeroTelefono.Clear();
             txtEdad.Clear();
@@ -188,7 +187,7 @@ namespace SistemaProyectos
                 DateTime fechaContratacion= DateTime.Now;
                 string Departamento = cmbDepartamento.Text;
                 double salario = Convert.ToDouble(txtSalario.Text);
-                string cargo=cmbCargo.Text;
+                string cargo=txtCargo.Text;
                 string correoElectronico=txtCorreo.Text;
                 string numeroTelefono = txtnumeroTelefono.Text;
                 string lugarResidencia = txtResidencia.Text;
@@ -213,19 +212,26 @@ namespace SistemaProyectos
         {
             try
             {
-                string idDepartamento=txtID.Text;
-                string nombreDepartamento = txtNombreDepartamento.Text;
-                string jefeDepartamento = txtJefeDepartamento.Text;
-                int cantEmpleados=Convert.ToInt32(cmbNumeroEmpleados.SelectedIndex.ToString());
+                if (!(txtNombreDepartamento.Text == ""||txtJefeDepartamento.Text==""||cmbNumeroEmpleados.SelectedIndex==-1))
+                {
+                    string idDepartamento = txtID.Text;
+                    string nombreDepartamento = txtNombreDepartamento.Text;
+                    string jefeDepartamento = txtJefeDepartamento.Text;
+                    int cantEmpleados = Convert.ToInt32(cmbNumeroEmpleados.SelectedIndex.ToString());
 
-                Departamento departamento=new Departamento(idDepartamento,nombreDepartamento,jefeDepartamento,cantEmpleados);
-                
-                listaDepartamentos.Add(departamento);
+                    Departamento departamento = new Departamento(idDepartamento, nombreDepartamento, jefeDepartamento, cantEmpleados);
 
-                MessageBox.Show("El departamento se guardo correctamente","Exito",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                LimpiarControles();
-                MostrarDatos();
-                OcultarElementos();
+                    listaDepartamentos.Add(departamento);
+
+                    MessageBox.Show("El departamento se guardo correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LimpiarControles();
+                    MostrarDatos();
+                    OcultarElementos();
+                }
+                else 
+                {
+                    MessageBox.Show("Datos incompletos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             catch (Exception)
             {
@@ -308,6 +314,40 @@ namespace SistemaProyectos
                     }
                     dataDepartamentos.DataSource = dt;
                     break;
+            }
+        }
+
+        private void txtCorreo_TextChanged(object sender, EventArgs e)
+        {
+            ValidarCorreo();
+        }
+
+        private void ValidarCorreo()
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(txtCorreo.Text, @"^[^@]+@[^@]+\.[^@]+$"))
+            {
+                errorProvider.SetError(txtCorreo, "Formato incorrecto: xxxx@xxxx.com");
+            }
+            else
+            {
+                errorProvider.SetError(txtCorreo, "");
+            }
+        }
+
+        private void txtnumeroTelefono_TextChanged(object sender, EventArgs e)
+        {
+            ValidarNumero();
+        }
+
+        private void ValidarNumero()
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(txtnumeroTelefono.Text, @"^\d{4}-?\d{4}$"))
+            {
+                errorProvider.SetError(txtnumeroTelefono, "Formato incorrecto: xxxx-xxxx o xxxxxxxxx(8 digitos)");
+            }
+            else
+            {
+                errorProvider.SetError(txtnumeroTelefono, "");
             }
         }
     }
